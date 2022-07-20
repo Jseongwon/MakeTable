@@ -1,0 +1,64 @@
+{
+  "data": [
+    {
+      "number": "1",
+      "id": "Admin",
+      "employee": {
+        "name": "Admin",
+        "authority": "Admin",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "2",
+      "id": "testUser1",
+      "employee": {
+        "name": "testUser1",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "3",
+      "id": "testUser2",
+      "employee": {
+        "name": "testUser2",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "4",
+      "id": "testUser3",
+      "employee": {
+        "name": "testUser3",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    }
+  ]
+}
