@@ -5,6 +5,10 @@ export class DataTable {
 
     }
 
+    setDecideContentsLength(decideContetnsLength){
+        this.decideContetnsLength = decideContetnsLength;
+    }
+
     setJSONData(jsonData) {
         this.configure = jsonData;
     }
@@ -13,22 +17,46 @@ export class DataTable {
         this.tableElement = tableElement;
     }
 
-    makeTable(isColumn = true) {
-        // 1. 테이블의 열을 만들어야 하면 테이블의 열을 만든다.
-        if(isColumn == true){
+    addHeadClass(className) {
+        this.theadElement.classList.add(className);
+    }
+
+    addBodyClass(className) {
+        this.tbodyElement.classList.add(className);
+    }
+
+    addFootClass(className) {
+        this.tfootElement.classList.add(className);
+    }
+
+    appendFilteringRow(isDecide = true, isFilter = true) {
+
+    }
+
+    appendContentsRow(isHead = true, isFoot = true, isNavigation = true) {
+        // 1. 테이블의 thead를 만든다.
+        if(isHead == true){
             this.makeTableHead();
         }
 
-        // 2. 줄을 만든다.
+        // 2. 테이블의 tbody를 만든다.
         this.makeTableBody();
+
+        // 3. 테이블의 tfoot를 만든다.
+        if(isFoot == true){
+            this.makeTableFoot();
+        }
+    }
+
+    appendPaginationRow(isContentsInfo = true, isPagination = true) {
+
     }
 
     makeTableHead() {
-        let theadElement;
         let trElement;
 
         // 1. 태그 thead를 만든다.
-        theadElement = document.createElement('thead');
+        this.theadElement = document.createElement('thead');
 
         // 2. 줄을 만든다.
         trElement = document.createElement('tr');
@@ -37,23 +65,53 @@ export class DataTable {
         this.recursiveWriteHeaderInfo(trElement, this.configure.data[0]);
 
         // 4. 테이블의 헤더에 줄을 추가한다.
-        theadElement.appendChild(trElement);
+        this.theadElement.appendChild(trElement);
 
         // 5. 테이블에 thead를 추가한다.
-        this.tableElement.appendChild(theadElement);
+        this.tableElement.appendChild(this.theadElement);
     }
 
     makeTableBody() {
-        let tbodyElement;
-
         // 1. 태그 tbody를 만든다.
-        tbodyElement = document.createElement('tbody');
+        this.tbodyElement = document.createElement('tbody');
 
         // 2. 줄들을 추가한다.
-        this.makeRows(tbodyElement, this.configure.data);
+        this.makeRows(this.tbodyElement, this.configure.data);
 
         // 3. 테이블에 tbody를 추가한다
-        this.tableElement.appendChild(tbodyElement);
+        this.tableElement.appendChild(this.tbodyElement);
+    }
+
+    makeTableFoot() {
+        let trElement;
+
+        // 1. 태그 tfoot를 만든다.
+        this.tfootElement = document.createElement('tfoot');
+
+        // 2. 줄을 만든다
+        trElement = document.createElement('tr');
+
+        // 3. 줄에서 정보들을 추가한다.
+        this.recursiveWriteHeaderInfo(trElement, this.configure.data[0]);
+
+        // 4. 테이블의 foot 원소에 추가한다.
+        this.tfootElement.appendChild(trElement);
+
+        // 5. 테이블에 foot 원소를 추가한다.
+        this.tableElement.appendChild(this.tfootElement);
+    }
+
+    makeDecideContentsLength() {
+
+    }
+
+    makeSearchWindow(isTop = true) {
+
+    }
+
+    makePagination() {
+        // 1. 페이징 처리를 위한 하단 영역을 만든다.
+
     }
 
     makeRows(tbodyElement, jsonData) {

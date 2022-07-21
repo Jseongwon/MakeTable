@@ -24,4 +24,7 @@ targetElement = document.querySelector('#targetTable');
 dataTable.setTableElement(targetElement);
 
 // 3. 테이블을 만든다.
-dataTable.makeTable(true);
+dataTable.appendContentsRow();
+
+// 4. head에 클래스를 추가한다.
+dataTable.addHeadClass('table-dark');
