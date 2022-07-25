@@ -1,0 +1,411 @@
+* {
+    box-sizing: border-box;
+}
+
+.nav-leftArea {
+
+}
+
+/* Nav */
+.nav{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+
+    border-bottom: 1px solid #dee2e6;
+}
+
+.navStyle{
+    position: relative;
+    background-color: #ffff;
+    overflow: hidden;
+
+    color: black;
+    text-align: center;
+    justify-content: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navStyle a:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+    cursor: pointer;
+    color: black;
+}
+
+.navStyle a.active {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.navStyle-centered {
+    position: absolute;
+    margin: 0 5%;
+}
+
+.navStyle-left a{
+    float: left;
+}
+
+.navStyle-centered a {
+    float: none;
+}
+
+.navStyle-right a {
+    float: right;
+}
+
+.nav-page-item {
+    padding: 10px;
+}
+
+.nav-list-item {
+    flex: 1 1 auto;
+    background-color: rgba(0, 0, 0, 0.03);
+    text-align: center;
+    cursor: pointer;
+}
+
+.nav-task-item {
+    flex: 1 1 auto;
+    background-color: rgba(0, 0, 0, 0.03);
+    text-align: center;
+    cursor: pointer;
+}
+
+.nav-link.active {
+    color: black;
+    border-color: transparent transparent #f3f3f3;
+    border-bottom: 3px solid !important;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+
+    border: 1px solid transparent;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+/* Responsive navigation menu - display links on top of each other instead of next to each other (for mobile devices) */
+@media screen and (max-width: 600px) {
+    .navStyle a, .navStyle-right {
+        float: none;
+        display: block;
+    }
+
+    .navStyle-centered a {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+    }
+}
+
+/* Card */
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+
+.card-header {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.card-header:first-child {
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+}
+
+/*VacationInfo Area*/
+.dataTable-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 0.875rem;
+}
+
+.dataTable-container {
+    border-top: none;
+
+}
+.dataTable-container {
+    border-bottom: none;
+}
+
+/* Container */
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) {
+    .container-sm, .container {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) {
+    .container-md, .container-sm, .container {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .container-lg, .container-md, .container-sm, .container {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) {
+    .container-xl, .container-lg, .container-md, .container-sm, .container {
+        max-width: 1140px;
+    }
+}
+@media (min-width: 1400px) {
+    .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+        max-width: 1320px;
+    }
+}
+
+/* ROW */
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-0.5 * var(--bs-gutter-x));
+    margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+.row > * {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-top: var(--bs-gutter-y);
+}
+
+.tab {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+/* PAGER */
+.dataTable-pagination a:hover {
+    background-color: #e9ecef;
+}
+
+.dataTable-pagination .active a,
+.dataTable-pagination .active a:focus,
+.dataTable-pagination .active a:hover {
+    background-color: #0d6efd;
+}
+
+.dataTable-pagination .ellipsis a,
+.dataTable-pagination .disabled a,
+.dataTable-pagination .disabled a:focus,
+.dataTable-pagination .disabled a:hover {
+    cursor: not-allowed;
+}
+
+.dataTable-pagination .disabled a,
+.dataTable-pagination .disabled a:focus,
+.dataTable-pagination .disabled a:hover {
+    cursor: not-allowed;
+    opacity: 0.4;
+}
+
+.dataTable-pagination .pager a {
+    font-weight: bold;
+}
+
+/* Table */
+table {
+    caption-side: bottom;
+    border-collapse: collapse;
+}
+
+.table, .dataTable-table {
+    --bs-table-bg: transparent;
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: #212529;
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-active-color: #212529;
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color: #212529;
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    vertical-align: top;
+    border-color: #dee2e6;
+}
+
+.table>:not(caption)>*>* {
+    padding: 0.5rem 0.5rem;
+    background-color: var(--bs-table-bg);
+    border-bottom-width: 1px;
+    box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    --bs-table-accent-bg: var(--bs-table-striped-bg);
+    color: var(--bs-table-striped-color);
+}
+
+.table-hover > tbody > tr:hover > * {
+    --bs-table-accent-bg: var(--bs-table-hover-bg);
+    color: var(--bs-table-hover-color);
+}
+
+.table-dark {
+    --bs-table-color: #fff;
+    --bs-table-bg: #212529;
+    --bs-table-border-color: #373b3e;
+    --bs-table-striped-bg: #2c3034;
+    --bs-table-striped-color: #fff;
+    --bs-table-active-bg: #373b3e;
+    --bs-table-active-color: #fff;
+    --bs-table-hover-bg: #323539;
+    --bs-table-hover-color: #fff;
+    color: #fff;
+    border-color: #373b3e;
+}
+
+th {
+    text-align: inherit;
+    text-align: -webkit-match-parent;
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+}
+
+.table > :not(:first-child), .dataTable-table > :not(:first-child) {
+    border-top: 2px solid currentColor;
+}
+
+.dataTable-table > tbody > tr > td,
+.dataTable-table > tbody > tr > th,
+.dataTable-table > tfoot > tr > td,
+.dataTable-table > tfoot > tr > th,
+.dataTable-table > thead > tr > td,
+.dataTable-table > thead > tr > th {
+    vertical-align: top;
+    padding: 0.5rem 0.5rem;
+
+    border-width: 0 1px;
+}
+
+.dataTable-table > thead > tr > th {
+    vertical-align: bottom;
+    text-align: left;
+    border-bottom: none;
+}
+
+.dataTable-table > tfoot > tr > th {
+    vertical-align: bottom;
+    text-align: left;
+}
+
+.dataTable-table th {
+    vertical-align: bottom;
+    text-align: left;
+}
+
+.dataTable-table th a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.dataTable-sorter {
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    padding-right: 1rem;
+}
+
+.dataTable-sorter::before,
+.dataTable-sorter::after {
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    right: 4px;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    opacity: 0.2;
+}
+
+.dataTable-sorter::before {
+    bottom: 4px;
+}
+
+.dataTable-sorter::after {
+    top: 0px;
+}
+
+.asc .dataTable-sorter::after,
+.desc .dataTable-sorter::before {
+    opacity: 0.6;
+}
+
+.dataTables-empty {
+    text-align: center;
+}
+
+.dataTable-top::after,
+.dataTable-bottom::after {
+    clear: both;
+    content: " ";
+    display: table;
+}
+
+.btn-datatable {
+    height: 20px !important;
+    width: 20px !important;
+    font-size: 0.75rem;
+    border-radius: 0.25rem !important;
+}
