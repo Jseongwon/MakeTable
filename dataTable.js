@@ -5,20 +5,25 @@ export class DataTable {
 
     }
 
-    async init(){
-
-
+    async init() {
 
 
         this.setNavStyleButtonClicked();
     }
 
-    setDecideContentsLength(decideContetnsLength){
+    async update() {
+        this.renderRows();
+
+        this.renderNavButtons();
+    }
+
+    setDecideContentsLength(decideContetnsLength) {
         this.decideContetnsLength = decideContetnsLength;
     }
 
     setJSONData(jsonData) {
         this.configure = jsonData;
+        this.columnLength = this.getColumnCount();
     }
 
     setTableElement(tableElement) {
@@ -33,14 +38,14 @@ export class DataTable {
         this.pageLength = pageLength;
     }
 
-    setNavStyleButtonClicked(){
+    setNavStyleButtonClicked() {
         let navStyleArea;
 
         navStyleArea = document.querySelector('.navStyle');
         navStyleArea.addEventListener('click', this.onNavButtonClicked);
     }
 
-    movePage(currentPage){
+    movePage(currentPage) {
         this.currentPage = currentPage;
     }
 
@@ -58,19 +63,19 @@ export class DataTable {
 
     appendFilteringRow(isDecide = true, isFilter = true) {
         // 1. 화면에 보여질 줄 수와 페이지 수를 정하는 UI를 만든다.
-        if(isDecide == true){
+        if (isDecide == true) {
             // this.makeDecide();
         }
 
         // 2. 테이블의 필터 UI를 만든다
-        if(isFilter == true){
+        if (isFilter == true) {
             // this.makeFilter();
         }
     }
 
     appendContentsRow(isHead = true, isFoot = true) {
         // 1. 테이블의 thead를 만든다.
-        if(isHead == true){
+        if (isHead == true) {
             this.makeTableHead();
         }
 
@@ -78,19 +83,19 @@ export class DataTable {
         this.makeTableBody();
 
         // 3. 테이블의 tfoot를 만든다.
-        if(isFoot == true) {
+        if (isFoot == true) {
             this.makeTableFoot();
         }
     }
 
     appendPaginationRow(isPagination = true, isContentsInfo = false) {
         // 1. 테이블의 페이지 UI를 만든다.
-        if(isPagination == true) {
+        if (isPagination == true) {
             this.makePagination();
         }
 
         // 2. 내용의 정보를 보여주는 UI를 만든다.
-        if(isContentsInfo == true){
+        if (isContentsInfo == true) {
             // this.makeContentsInfo();
         }
     }
@@ -156,68 +161,90 @@ export class DataTable {
         // 1. 페이징 처리를 위한 하단 영역을 만든다.
         let startPageNumber = 1;
         let endPageNumber;
-        let currentPageNumberOnDigit;
+        let quotient;
+        let remainder;
+        let totalRowLengthRemainder;
 
         // 1. 페이지에 필요한 값들을 구한다. (입력 : 한 페이지의 최대 줄 수, 기능 : 페이지 개수 구함, 출력 : 페이지의 개수
         this.totalRowLength = this.configure.data.length;
 
         this.totalPageLength = (this.rowLength != 0) ? parseInt(this.totalRowLength / this.rowLength) : 0;
 
-        // 2. 페에지 이동 네비게이션 바의 총 개수를 구한다 pageLength
-        // 2.1. 현재 페이지의 1의 자리수를 구한다.
-        currentPageNumberOnDigit = this.currentPage % this.pageLength;
+        totalRowLengthRemainder = this.totalRowLength % this.rowLength;
 
         // + 나머지가 있으면 페이지의 수를 하나 증가시킨다.
-        (currentPageNumberOnDigit > 0) ? this.totalPageLength++ : null;
+        (totalRowLengthRemainder > 0) ? this.totalPageLength++ : null;
+
+        // 2. 페에지 이동 네비게이션 바의 총 개수를 구한다 pageLength
+        // 2.1. 현재 페이지의 1의 자리수를 구한다.
+        quotient = parseInt(this.currentPage / this.pageLength);
+        remainder = this.currentPage % this.pageLength;
 
         // 2.2. 현재 페이지에 맞는 pageLength 단위의 시작 페이지번호를 구한다.
-        startPageNumber = this.currentPage - currentPageNumberOnDigit + 1;
+        // 나머지가 있을 땐
+        // 시작 번호 = 몫 * 페이지수 + 1
+        // 끝 번호 = (몫 + 1) * 페이지수
+        startPageNumber = (quotient - 1) * this.pageLength + 1;
 
-        // 2.3. 현재 페이지에 맞는 pageLength 단위의 마지막 페이지 번호를 구한다.
-        endPageNumber = this.currentPage - currentPageNumberOnDigit + this.pageLength;
+        endPageNumber = quotient * this.pageLength;
+        if(remainder > 0) {
+            startPageNumber = quotient * this.pageLength + 1;
+
+            // 2.3. 현재 페이지에 맞는 pageLength 단위의 마지막 페이지 번호를 구한다.
+            endPageNumber = (quotient + 1) * this.pageLength;
+        }
+        console.log(startPageNumber);
+        console.log(this.currentPage);
 
         // 2.4. 페이지의 총 수보다 마지막 페이지 번호가 크면 마지막 페이지 번호는 페이지의 총 수이다.
-        if(this.totalPageLength < endPageNumber){
+        if (this.totalPageLength < endPageNumber) {
             endPageNumber = this.totalPageLength;
         }
 
         // 3. 네비게이션바를 렌더링 한다.
         // + 왼쪽 영역을 만든다.
-        this.makeNavLeftArea('navStyle-left');
+        this.makeNavLeftArea();
 
         // + 가운데 영역인 페이지 번호를 만든다.
         this.makeNavMiddleArea(startPageNumber, endPageNumber);
 
         // + 오른쪽 영역을 만든다.
-        this.makeNavRightArea('navStyle-right');
+        this.makeNavRightArea();
     }
 
     makeRows(tbodyElement, jsonData) {
         let trElement;
         let itJson;
 
-        let startNumber;
-        let endNumber;
+        let startRow;
+        let endRow;
+        let rowLength;
 
-        startNumber = (this.currentPage - 1) * this.rowLength;
-        endNumber = startNumber + this.rowLength;
+        startRow = (this.currentPage - 1) * this.rowLength;
+        rowLength = startRow + this.rowLength;
 
-        if(endNumber > this.totalRowLength){
-            endNumber = this.totalRowLength;
+        endRow = rowLength;
+        if (rowLength > this.totalRowLength) {
+            endRow = this.totalRowLength;
         }
 
-        // 1. jsonData의 개수만큼 반복한다.
-        for (let i = startNumber; i < endNumber; i++){
+        // 1. 줄 수만큼 반복한다.
+        for (let i = startRow; i < rowLength; i++) {
             // 1.1. tr 태그를 만든다.
             trElement = document.createElement('tr');
 
-            // 1.2. jsonData의 현재 배열을 읽는다.
-            itJson = jsonData[i];
+            // 1.2. jsonData가 있으면
+            if (i < endRow) {
+                // 1.2.1. jsonData의 현재 배열을 읽는다.
+                itJson = jsonData[i];
 
-            // 1.3. 줄에서 적는다.
-            this.recursiveWriteBodyInfo(trElement, itJson);
-
-            // 1.4. tbody에 추가한다.
+                // 1.2.2. 줄에서 적는다.
+                this.recursiveWriteBodyInfo(trElement, itJson);
+            }
+            else{
+                this.writeSpaceInfo(trElement);
+            }
+            // 1.3. tbody에 추가한다.
             tbodyElement.appendChild(trElement);
         }
     }
@@ -236,39 +263,55 @@ export class DataTable {
         this.tableElement.appendChild(this.tbodyElement);
     }
 
+    renderNavButtons() {
+        let navQuickAreaParent;
+        let navQuickArea;
+
+        // 1. navStyle Element를 찾는다.
+        navQuickArea = document.querySelector('.navStyle');
+        navQuickAreaParent = navQuickArea.parentNode;
+
+        // 2. navStyle를 삭제한다.
+        navQuickArea.remove();
+
+        // 3. navStyle 영역을 만든다.
+        navQuickArea = document.createElement('tr');
+        navQuickArea.className = 'navStyle';
+
+        // 4. 원래 위치에 끼워 놓는다.
+        navQuickAreaParent.appendChild(navQuickArea);
+
+        console.log("NavButton Render!");
+
+        // 5. 버튼들을 렌더링한다.
+        this.makePagination();
+
+        this.setNavStyleButtonClicked();
+    }
+
     makeNavMiddleArea(startPageNumber, endPageNumber) {
         let navQuickArea;
-        let navArea;
         let navATagItem;
         let pageNumber;
 
         // 1. nav의 빠른 이동 영역을 찾는다.
         navQuickArea = document.querySelector('.navStyle');
 
-        // 2. 가운데 영역을 만든다.
-        navArea = document.createElement('div');
-
-        navArea.className = 'navStyle-centered';
-
-        // 3. 시작 번호부터 마지막 번호까지 반복한다.
-        for(let i = startPageNumber; i <= endPageNumber; i++){
+        // 2. 시작 번호부터 마지막 번호까지 반복한다.
+        for (let i = startPageNumber; i <= endPageNumber; i++) {
             pageNumber = String(i);
 
-            // 3.1. nav의 페이지 번호 이동 버튼을 만든다.
+            // 2.1. nav의 페이지 번호 이동 버튼을 만든다.
             navATagItem = this.makeNavATagItem(pageNumber);
             navATagItem.innerText = pageNumber;
 
-            // 3.2. nav의 가운데 영역에 추가한다.
-            navArea.appendChild(navATagItem);
+            // 2.2. nav의 가운데 영역에 추가한다.
+            navQuickArea.appendChild(navATagItem);
         }
-
-        // 4. nav의 빠른 이동 영역에서 nav의 가운데 영역을 추가한다.
-        navQuickArea.appendChild(navArea);
     }
 
-    makeNavLeftArea(className) {
+    makeNavLeftArea() {
         let navQuickArea;
-        let navArea;
         let navATagItem;
 
         // 1. nav의 빠른 이동 영역을 찾는다.
@@ -276,32 +319,23 @@ export class DataTable {
 
         // 2. nav의 왼쪽 영역을 만든다.
         // ========================
-        // 1. nav의 왼쪽 영역을 만든다.
-        navArea = document.createElement('div');
-
-        navArea.className = className;
-
-        // 2. nav의 처음 이동 버튼을 만든다.
+        // 1. nav의 처음 이동 버튼을 만든다.
         navATagItem = this.makeNavATagItem('first');
         navATagItem.innerText = "<<";
 
-        // 3. nav의 왼쪽 영역에 추가한다.
-        navArea.appendChild(navATagItem);
+        // 2. nav의 왼쪽 영역에 추가한다.
+        navQuickArea.appendChild(navATagItem);
 
-        // 4. nav의 이전 이동 버튼을 만든다.
+        // 3. nav의 이전 이동 버튼을 만든다.
         navATagItem = this.makeNavATagItem('previous');
         navATagItem.innerText = "<";
 
-        // 5. nav의 왼쪽 영역에 추가한다.
-        navArea.appendChild(navATagItem);
-
-        // 6. nav의 빠른 이동 영역에서 nav의 왼쪽 영역을 추가한다.
-        navQuickArea.appendChild(navArea);
+        // 4. nav의 왼쪽 영역에 추가한다.
+        navQuickArea.appendChild(navATagItem);
     }
 
-    makeNavRightArea(className) {
+    makeNavRightArea() {
         let navQuickArea;
-        let navArea;
         let navATagItem;
 
         // 1. nav의 빠른 이동 영역을 찾는다.
@@ -309,27 +343,19 @@ export class DataTable {
 
         // 2. nav의 왼쪽 영역을 만든다. + float이 오른쪽 정렬이기에 오른쪽부터 순서대로 추가해야한다.
         // ========================
-        // 1. nav의 오른쪽 영역을 만든다.
-        navArea = document.createElement('div');
-
-        navArea.className = className;
-
-        // 2. nav의 마지막 이동 버튼을 만든다.
-        navATagItem = this.makeNavATagItem('last');
-        navATagItem.innerText = ">>";
-
-        // 3. nav의 오른쪽 영역에 추가한다.
-        navArea.appendChild(navATagItem);
-
-        // 4. nav의 다음 이동 버튼을 만든다.
+        // 1. nav의 마지막 이동 버튼을 만든다.
         navATagItem = this.makeNavATagItem('next');
         navATagItem.innerText = ">";
 
-        // 5. nav의 오른쪽 영역에 추가한다.
-        navArea.appendChild(navATagItem);
+        // 2. nav의 오른쪽 영역에 추가한다.
+        navQuickArea.appendChild(navATagItem);
 
-        // 6. nav의 빠른 이동 영역에서 nav의 오른쪽 영역을 추가한다.
-        navQuickArea.appendChild(navArea);
+        // 3. nav의 다음 이동 버튼을 만든다.
+        navATagItem = this.makeNavATagItem('last');
+        navATagItem.innerText = ">>";
+
+        // 4. nav의 오른쪽 영역에 추가한다.
+        navQuickArea.appendChild(navATagItem);
     }
 
     makeNavATagItem(identifier) {
@@ -352,6 +378,42 @@ export class DataTable {
         return navATagItem;
     }
 
+    writeSpaceInfo(trElement) {
+        let itElement;
+
+        for(let i = 0; i < this.columnLength; i++){
+            itElement = document.createElement('td');
+
+            itElement.innerText = "ㅤ";
+
+            trElement.appendChild(itElement);
+        }
+    }
+
+    getColumnCount() {
+        this.recursiveColumnCount.count = 0;
+        this.recursiveColumnCount(this.configure.data[0]);
+        return this.recursiveColumnCount.count;
+    }
+
+    recursiveColumnCount(jsonData) {
+        let keys = Object.keys(jsonData);
+        let key;
+        let value;
+
+        // 1. 태그 tr을 만들어서 추가한다.
+        for (let i = 0; i < keys.length; i++) {
+            key = keys[i];
+            value = jsonData[key];
+
+            if (typeof value != "string") {
+                this.recursiveColumnCount(value);
+            } else {
+                this.recursiveColumnCount.count++;
+            }
+        }
+    }
+
     recursiveWriteHeaderInfo(trElement, jsonData) {
         let itElement;
         let keys = Object.keys(jsonData);
@@ -363,10 +425,9 @@ export class DataTable {
             key = keys[i];
             value = jsonData[key];
 
-            if(typeof value != "string"){
+            if (typeof value != "string") {
                 this.recursiveWriteHeaderInfo(trElement, value);
-            }
-            else{
+            } else {
                 itElement = document.createElement('th');
 
                 itElement.innerText = key.toUpperCase();
@@ -387,10 +448,9 @@ export class DataTable {
             key = keys[i];
             value = jsonData[key];
 
-            if(typeof value != "string"){
+            if (typeof value != "string") {
                 this.recursiveWriteBodyInfo(trElement, value);
-            }
-            else{
+            } else {
                 itElement = document.createElement('td');
 
                 itElement.innerText = value;
@@ -413,37 +473,39 @@ export class DataTable {
 
         // 3. id의 마지막 값을 추출한다.
         idStrings = id.split('-');
-        if(idStrings.length <= 0) return;
+        if (idStrings.length <= 0) return;
 
 
         // 4. id의 마지막 값이 first이면
-        if(idStrings[2] == 'first'){
+        if (idStrings[2] == 'first') {
             this.currentPage = 1;
         }
         // 5. id의 마지막 값이 previous이면
-        else if(idStrings[2] == 'previous'){
+        else if (idStrings[2] == 'previous') {
             this.currentPage--;
-            if(this.currentPage <= 0){
+            if (this.currentPage <= 0) {
                 this.currentPage = 1;
             }
         }
         // 6. id의 마지막 값이 번호이면
-        else if(isNaN(idStrings[2]) != true){
+        else if (isNaN(idStrings[2]) != true) {
             this.currentPage = parseInt(idStrings[2]);
         }
         // 7. id의 마지막 값이 next이면
-        else if(idStrings[2] == 'next'){
+        else if (idStrings[2] == 'next') {
             this.currentPage++;
-            if(this.currentPage >= this.totalPageLength){
+            if (this.currentPage >= this.totalPageLength) {
                 this.currentPage = this.totalPageLength;
             }
         }
         // 8. id의 마지막 값이 last이면
-        else if(idStrings[2] == 'last'){
+        else if (idStrings[2] == 'last') {
             this.currentPage = this.totalPageLength;
         }
 
         // 9. 줄을 랜더링한다.
-        this.renderRows();// + this가 이벤트를 호출하는 navStyle Element
+        this.renderRows();
+
+        this.renderNavButtons();
     }
 }

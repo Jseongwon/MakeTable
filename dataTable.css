@@ -48,20 +48,20 @@
 }
 
 .navStyle-centered {
-    position: absolute;
-    margin: 0 5%;
+    /*position: absolute;*/
+    /*margin: 0 5%;*/
 }
 
 .navStyle-left a{
-    float: left;
+    /*float: left;*/
 }
 
 .navStyle-centered a {
-    float: none;
+    /*float: none;*/
 }
 
 .navStyle-right a {
-    float: right;
+    /*float: right;*/
 }
 
 .nav-page-item {

@@ -134,6 +134,681 @@
         "monthlyLeave": "11",
         "halfDayLeave": "0"
       }
+    },
+    {
+      "number": "10",
+      "id": "Admin",
+      "employee": {
+        "name": "Admin",
+        "authority": "Admin",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "11",
+      "id": "testUser1",
+      "employee": {
+        "name": "testUser1",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "12",
+      "id": "testUser2",
+      "employee": {
+        "name": "testUser2",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "13",
+      "id": "testUser3",
+      "employee": {
+        "name": "testUser3",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "14",
+      "id": "testUser4",
+      "employee": {
+        "name": "testUser4",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "15",
+      "id": "testUser5",
+      "employee": {
+        "name": "testUser5",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "16",
+      "id": "testUser6",
+      "employee": {
+        "name": "testUser6",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "17",
+      "id": "testUser7",
+      "employee": {
+        "name": "testUser7",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "18",
+      "id": "testUser8",
+      "employee": {
+        "name": "testUser8",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "19",
+      "id": "Admin",
+      "employee": {
+        "name": "Admin",
+        "authority": "Admin",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "20",
+      "id": "testUser1",
+      "employee": {
+        "name": "testUser1",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "21",
+      "id": "testUser2",
+      "employee": {
+        "name": "testUser2",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "22",
+      "id": "testUser3",
+      "employee": {
+        "name": "testUser3",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "23",
+      "id": "testUser4",
+      "employee": {
+        "name": "testUser4",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "24",
+      "id": "testUser5",
+      "employee": {
+        "name": "testUser5",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "25",
+      "id": "testUser6",
+      "employee": {
+        "name": "testUser6",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "26",
+      "id": "testUser7",
+      "employee": {
+        "name": "testUser7",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "27",
+      "id": "testUser8",
+      "employee": {
+        "name": "testUser8",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "28",
+      "id": "Admin",
+      "employee": {
+        "name": "Admin",
+        "authority": "Admin",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "29",
+      "id": "testUser1",
+      "employee": {
+        "name": "testUser1",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "30",
+      "id": "testUser2",
+      "employee": {
+        "name": "testUser2",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "31",
+      "id": "testUser3",
+      "employee": {
+        "name": "testUser3",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "32",
+      "id": "testUser4",
+      "employee": {
+        "name": "testUser4",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "33",
+      "id": "testUser5",
+      "employee": {
+        "name": "testUser5",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "34",
+      "id": "testUser6",
+      "employee": {
+        "name": "testUser6",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "35",
+      "id": "testUser7",
+      "employee": {
+        "name": "testUser7",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "36",
+      "id": "testUser8",
+      "employee": {
+        "name": "testUser8",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "37",
+      "id": "Admin",
+      "employee": {
+        "name": "Admin",
+        "authority": "Admin",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "38",
+      "id": "testUser1",
+      "employee": {
+        "name": "testUser1",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "39",
+      "id": "testUser2",
+      "employee": {
+        "name": "testUser2",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "40",
+      "id": "testUser3",
+      "employee": {
+        "name": "testUser3",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "41",
+      "id": "testUser4",
+      "employee": {
+        "name": "testUser4",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "42",
+      "id": "testUser5",
+      "employee": {
+        "name": "testUser5",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "43",
+      "id": "testUser6",
+      "employee": {
+        "name": "testUser6",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "44",
+      "id": "testUser7",
+      "employee": {
+        "name": "testUser7",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "45",
+      "id": "testUser8",
+      "employee": {
+        "name": "testUser8",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "46",
+      "id": "Admin",
+      "employee": {
+        "name": "Admin",
+        "authority": "Admin",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "47",
+      "id": "testUser1",
+      "employee": {
+        "name": "testUser1",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "48",
+      "id": "testUser2",
+      "employee": {
+        "name": "testUser2",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "49",
+      "id": "testUser3",
+      "employee": {
+        "name": "testUser3",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "50",
+      "id": "testUser4",
+      "employee": {
+        "name": "testUser4",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "51",
+      "id": "testUser5",
+      "employee": {
+        "name": "testUser5",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "52",
+      "id": "testUser6",
+      "employee": {
+        "name": "testUser6",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "53",
+      "id": "testUser7",
+      "employee": {
+        "name": "testUser7",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
+    },
+    {
+      "number": "54",
+      "id": "testUser8",
+      "employee": {
+        "name": "testUser8",
+        "authority": "User",
+        "startDate": "2022-07-19",
+        "resignationDate": "null"
+      },
+      "vacationInfo": {
+        "annualLeave": "15",
+        "monthlyLeave": "11",
+        "halfDayLeave": "0"
+      }
     }
   ]
 }
